@@ -168,7 +168,7 @@ func ExtractWithFlags(buildFlags []string, patterns []string) error {
 	// if a path matches this regexp, we don't want to extract this package. Currently, it checks
 	//   - that the path does not contain a `..` segment, and
 	//   - the path does not contain a `vendor` directory.
-	noExtractRe := regexp.MustCompile(`.*(^|` + sep + `)(\.\.|vendor)($|` + sep + `).*`)
+	noExtractRe := regexp.MustCompile(`.*(^|` + sep + `)(\.\.)($|` + sep + `).*`)
 
 	// extract AST information for all packages
 	packages.Visit(pkgs, func(pkg *packages.Package) bool {
