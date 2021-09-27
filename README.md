@@ -38,6 +38,12 @@ func Crash() {
 2. copy the extractor tool `go-extractor` you downloaded into `$HOME/codeql-home/codeql/go/tools/linux64/go-extractor`.
 3. just create database like before.
 
+## Build
+```shell
+cd extractor/cli/go-extractor/
+go build
+```
+
 ## How it works?
 The official extractor for golang pass the vendor directory, what I did is just removing the vendor in the regexp pattern.
 

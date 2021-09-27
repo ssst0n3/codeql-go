@@ -38,6 +38,12 @@ func Crash() {
 2. 复制你刚刚下载的`go-extractor`，覆盖`$HOME/codeql-home/codeql/go/tools/linux64/go-extractor`。
 3. 然后就像你往常创建codeql数据库一样。
 
+## Build
+```shell
+cd extractor/cli/go-extractor/
+go build
+```
+
 ## 原理
 codeql官方的go-extractor跳过了vendor目录, 我只是又加了回来。
 
