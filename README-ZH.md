@@ -1,14 +1,14 @@
 # codeql-go-vendor-extractor
 
-[中文文档](./README-ZH.md)
+[english version](./README.md)
 
 ## WHY?
 
-The [official extractor for golang](https://github.com/github/codeql-go/tree/cd1e14ed09f4b56229b5c4fb7797203193b93897/extractor/cli/go-extractor) only support gomod mode.
+[官方的go-extractor](https://github.com/github/codeql-go/tree/cd1e14ed09f4b56229b5c4fb7797203193b93897/extractor/cli/go-extractor) 只支持go mod模式。
 
-It's not graceful for pure vendor mode.
+对于使用纯vendor模式的go项目，是不优雅的。
 
-For example, the result of this query below will be empty:
+例如，下面的codeql查询结果是空的。
 
 https://lgtm.com/query/8418405387172037343/
 
@@ -20,7 +20,7 @@ where e.getTarget().getName()="panic"
 select e
 ```
 
-But it should find the function call here:
+但是，它本应该可以找出下列会触发panic的函数:
 
 https://github.com/ssst0n3/go-vendor-test/blob/main/vendor/st0n3/st0n3.go
 
@@ -32,14 +32,14 @@ func Crash() {
 }
 ```
 
-## How to Use?
+## 如何使用
 
-1. download release (same version with your codeql-cli) from [releases page](https://github.com/ssst0n3/codeql-go-vendor/releases).
-2. copy the extractor tool `go-extractor` you downloaded into `$HOME/codeql-home/codeql/go/tools/linux64/go-extractor`.
-3. just create database like before.
+1. 从 [releases 页面](https://github.com/ssst0n3/codeql-go-vendor/releases) 下载 `go-extractor` (注意版本需要与你的codeql-cli一致)。
+2. 复制你刚刚下载的`go-extractor`，覆盖`$HOME/codeql-home/codeql/go/tools/linux64/go-extractor`。
+3. 然后就像你往常创建codeql数据库一样。
 
-## How it works?
-The official extractor for golang pass the vendor directory, what I did is just removing the vendor in the regexp pattern.
+## 原理
+codeql官方的go-extractor跳过了vendor目录, 我只是又加了回来。
 
 https://github.com/github/codeql-go/blob/codeql-cli/v2.6.2/extractor/extractor.go#L171-L182
 ```go
