@@ -34,7 +34,7 @@ func Crash() {
 
 ## How to Use?
 
-1. download release (same version with your codeql-cli) from [releases page](https://github.com/ssst0n3/codeql-go-vendor/releases).
+1. download release (select same version with your codeql-cli) from [releases page](https://github.com/ssst0n3/codeql-go-vendor/releases).
 2. copy the extractor tool `go-extractor` you downloaded into `$HOME/codeql-home/codeql/go/tools/linux64/go-extractor`.
 3. just create database like before.
 
